@@ -1,13 +1,13 @@
-;;; consult-jq.el --- Live preview of "jq" queries using consult -*- lexical-binding: t -*-
+;;; consult-parse.el --- Live processor of json,yaml,toml.html queries with consult -*- lexical-binding: t -*-
 
 ;; Copyright (C) 2021 liuyinz
 
-;; Author: liuyinz<liuyinz@gmail.com>
-;; Maintainer: liuyinz<liuyinz@gmail.com>
+;; Author: liuyinz <liuyinz@gmail.com>
+;; Maintainer: liuyinz <liuyinz@gmail.com>
 ;; Created: 2021-10-06 18:49:13
 ;; Version: 0.1.0
 ;; Package-Requires: ((emacs "27") (consult "0.9"))
-;; Homepage: https://github.com/liuyinz/consult-jq
+;; Homepage: https://github.com/liuyinz/consult-parse
 
 ;; This file is not a part of GNU Emacsl.
 
@@ -26,12 +26,19 @@
 
 ;;; Commentary:
 ;; "jq" binary installed
+;; "yq" binary installed
+;; "tomlq" binary installed
+;; "htmlq" binary installed
 
 ;;; Code:
 
 (require 'consult)
 
-
+(defgroup consult-parse nil
+""
+:prefix "consult-parse-"
+:group 'consult)
+  
 (defcustom consult-jq-json-buffer-mode 'js-mode
   "Major mode for the resulting `consult-jq-buffer' buffer."
   :type '(function)
